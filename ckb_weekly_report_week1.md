@@ -23,6 +23,5 @@
 
 ### Practical Progress
 - **setup a local dev node**
-- run a Dapp **View and Transfer Balance**
-transaction Hash : 
-tx hash: 0xeba7fa8a7af9237323801743195a0241c7c972cef16121ec86817c5001b0a3eb
+- run a Dapp **View and Transfer Balance** 
+- tx hash: 0xeba7fa8a7af9237323801743195a0241c7c972cef16121ec86817c5001b0a3eb
