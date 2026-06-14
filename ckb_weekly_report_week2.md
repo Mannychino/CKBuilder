@@ -7,8 +7,12 @@
 
 
 ## Key Learnings.
-- proper understanding of the nervos blockchain and it Multi layer architeture.
-- How the CKByte is used to pay for transaction fees.
+- Deep dive into the cell model and how it's inspired by the bitcoin UTXO
+- Scalability on CKB. How computation is done offchain and validation is done onchain to save computation power
 - The differences between BTC UTXO and CKB and how CKB improved on BTC mechanism with NC-MAX
 - understanding of cells, scripts
+
+## Key activities
+- Run a store Data on cell transaction.
+- tx Hash: 0xb7991f108247c929e3c752dc8292684b2f0d03155634e78aa018287d025c9115
 
