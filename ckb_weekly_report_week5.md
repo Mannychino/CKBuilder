@@ -47,7 +47,8 @@ A Lock Script is a Script stored inside a Cell that defines its ownership rules.
 - (code_hash, args, hash_type)
 
   ## Practical progress
-  ** setup node**
+  ** setup node a DOB local Node**
+  
 
 
 
