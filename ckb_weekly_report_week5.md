@@ -48,6 +48,7 @@ A Lock Script is a Script stored inside a Cell that defines its ownership rules.
 
   ## Practical progress
   ** setup node a DOB local Node**
+  ![image alt](https://github.com/Mannychino/CKBuilder/blob/8b455f9184c740918cb17a163a6746c13f95f1de/Untitled.png)
   
 
 
