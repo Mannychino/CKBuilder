@@ -45,3 +45,11 @@ structure of cell_deps
      and their purposes.
 
 **header_deps**. it list all Block header that that Transaction script can have access during execution.
+**inputs** It lists all the cells that were consumed, Also each structure of inputs is of type CellInput, this references a previously created output cell.
+i also learnt about the other strutures of transaction and the functions there play in consuming and creating new cells.
+
+##My reflection
+- This week has taught me why CKB is different from other blockchain in terms of processing data and the philosophy behind the design. 
+CKB is more keen on building a well secured blockchain but it own way. It could have been built like any other public blockchain which uses account model.
+
+
