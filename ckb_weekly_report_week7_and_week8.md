@@ -1,5 +1,5 @@
 
-#CKB Builder Track Weekly Report - week 7 and 8
+## CKB Builder Track Weekly Report - week 7 and 8
 **Name:** Nwaji Victor
 **Week** 22/07/2026
 
@@ -95,7 +95,11 @@ By combining theoretical knowledge with hands-on practice, I now have a much str
 With this foundation in place, my next goal is to dive deeper into the more CKB Project, create my first dapp.
 
 ## Images
-![image One](Screenshot (2).png)
+![image One](https://github.com/Mannychino/CKBuilder/blob/859319e8201906aedc1e9689e05deedffeac4e67/Screenshot%20(2).png)
+![image Two](https://github.com/Mannychino/CKBuilder/blob/859319e8201906aedc1e9689e05deedffeac4e67/Screenshot%20(4).png)
+![image Three](https://github.com/Mannychino/CKBuilder/blob/859319e8201906aedc1e9689e05deedffeac4e67/Screenshot%20(6).png)
+![image Four](https://github.com/Mannychino/CKBuilder/blob/859319e8201906aedc1e9689e05deedffeac4e67/Screenshot%20(7).png)
+![image Five](https://github.com/Mannychino/CKBuilder/blob/859319e8201906aedc1e9689e05deedffeac4e67/Screenshot%20(8).png)
   
 
 
