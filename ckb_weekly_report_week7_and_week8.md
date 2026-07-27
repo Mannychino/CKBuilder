@@ -95,7 +95,7 @@ By combining theoretical knowledge with hands-on practice, I now have a much str
 With this foundation in place, my next goal is to dive deeper into the more CKB Project, create my first dapp.
 
 ## Images
-![image One]()
+![image One](Screenshot (2).png)
   
 
 
