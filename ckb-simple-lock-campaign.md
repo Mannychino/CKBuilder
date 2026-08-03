@@ -1,6 +1,6 @@
 ### The Build on CKB Campaign
 - The campaign goal is to complete the Build a simple Lock tutorial and share an interesting reflection.
-  **Proof of completion**
+  -**Proof of completion**
   - Deploying a custom Lock Script
   - Deploying a dApp frontend to transfer tokens from the lock script.
  
@@ -19,6 +19,16 @@
     -  ![Deploy script](https://github.com/Mannychino/CKBuilder/blob/b9a6b9c30bb2627334df3c1dad835f6b5e4fdb08/Screenshot%20(16).png)
     -  ![Deposit CKB](https://github.com/Mannychino/CKBuilder/blob/498bded61dc2837d4718f01d4d350dee56f86461/Screenshot%20(29).png)
     -  ![w0rking lock-script](https://github.com/Mannychino/CKBuilder/blob/d4f7f5af850fd4d3606ce91199356f6561b5566f/Screenshot%20(30).png)
+   
+
+    ### Reflection (What i learnt so far)
+    - So far, i have learnt how the lock script stores the hash of the secret preimage and use that to verify the correct signer of ckb cell
+    - The hash generated from the preimage is compared with the hash stored in the contract lock arguments.
+    - i also noticed when you change the preimage, the preimage hash, Hash_lock (ckb address) and lock script args also changes.
+    - when the value of preimage is change, the capacity is 0 and needs to be funded before transaction. 
+    - i also learnt that everything you deploy a script, you generate a new scripts.json file that the frontend dapp reference.
+    - The frontend script.json file need to be updated with file from deployment/script.json after every deployment. 
+      
    
 
 
