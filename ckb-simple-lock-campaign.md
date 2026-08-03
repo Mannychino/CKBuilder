@@ -16,7 +16,7 @@
 
     ## You can check the following images for each progress
     -  ![Offckb Node](https://github.com/Mannychino/CKBuilder/blob/d543615e1bd2ebcf95383a95da4363c52f809b53/Screenshot%20(27).png)
-    -  ![Deploy script](
+    -  ![Deploy script](https://github.com/Mannychino/CKBuilder/blob/b9a6b9c30bb2627334df3c1dad835f6b5e4fdb08/Screenshot%20(16).png)
    
 
 
