@@ -13,6 +13,9 @@
     - **Step 5** Deposit some CKB for testing purpose. with offckb deposit --network devnet [address]
     - You can now begin testing by clicking the transfer button and modifying the preimage.
     - **Step 6** Enter the amount of ckb you want to transfer, enter the preimage and submit the transaction.
+
+    ## You can check the following images for each progress
+    -  ![image alt]()
    
 
 
