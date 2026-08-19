@@ -341,5 +341,6 @@ The project can now compile a custom Rust lock script into a RISC-V executable, 
 
 The next phase will focus on transforming this working technical foundation into an actual vault mechanism with meaningful authorization and spending rules.
 
-[!imagelink](https://github.com/Mannychino/CKBuilder/blob/ed296bbeda648b5a1da037d3ee2fb0c0dcf8fde7/Screenshot%20(34).png)
+![imagelink](https://github.com/Mannychino/CKBuilder/blob/ed296bbeda648b5a1da037d3ee2fb0c0dcf8fde7/Screenshot%20(34).png)
+![imageLink](https://github.com/Mannychino/CKBuilder/blob/c47fe25439bcc9a0680641aabc6312bab1d186ea/Screenshot%20(33).png)
  
