@@ -10,11 +10,8 @@ A major milestone this week was getting the `vault-lock` contract to successfull
 ---
 
 # 1. Project Goal
-
 CKB-Vault is being developed as a vault-style application on Nervos CKB.
-
 The initial contract is called:
-
 vault-lock
 The purpose of this contract is to serve as the foundation for controlling access to CKB cells through a custom **Lock Script** .
 Rather than using the standard wallet lock directly, the project explores how a custom lock script can define the rules under which a Cell can be spent.
@@ -29,13 +26,11 @@ The project therefore provides a practical way to built a project with what i le
 * Contract testing
 * CKB development tooling
 
-# 2. CKB Concepts Applied
+#  CKB Concepts Applied
 One of the most important parts of this project was connecting the theoretical CKB concepts I had previously studied with an actual implementation.
-
 ## Cell Model
 The project uses the CKB Cell Model
 It then retrieves the script arguments:
-
 # Script Arguments
 The project currently demonstrates how arguments can be passed into a CKB Lock Script.
 The test constructs the lock script with:
@@ -43,19 +38,17 @@ rust
 let lock_script = context
     .build_script(&out_point, Bytes::from(vec![42]))
     .expect("failed to build lock script");
-
 The value:
-
+```
 text
 42
-
+```
 is therefore supplied as the script argument.
-
 Inside the contract, those arguments are retrieved using:
-
+``
 rust
 let args = script.args().raw_data();
-
+``
 This establishes the basic relationship:
 
 Transaction
@@ -66,27 +59,8 @@ Script Arguments
       ↓
 Contract Logic
 
-
-
-
-
-### `Makefile`
-
-Provides standardized commands for:
-
-* building
-* testing
-* checking
-* formatting
-* cleaning
-* preparing the RISC-V target
-
----
-
-# 6. Cargo Configuration
-
+# Cargo Configuration
 The project uses:
-
 ```toml
 [dependencies]
 ckb-std = "1.1"
@@ -94,41 +68,26 @@ ckb-std = "1.1"
 [dev-dependencies]
 ckb-testtool = "1.1.1"
 ```
-
 The project also defines:
-
 ```toml
 [features]
 library = []
 native-simulator = ["library", "ckb-std/native-simulator"]
 ```
-
 The `library` feature allows the contract code to be compiled as a normal Rust library for testing.
 
 The `native-simulator` feature enables CKB's native simulation functionality.
 
-This distinction became important while debugging the difference between:
-
-```text
-CKB RISC-V contract
-```
-
-and:
-
-```text
-Native Rust test
-```
-
----
 
 # Major Compilation Problem
 
 One of the biggest technical problems encountered was running:
+```
 bash
 cargo test --test vault_lock,  without correctly separating the contract binary from the native test environment.
 The linker initially produced:
 duplicate symbol: _start
-
+```
 # Correct Build Target
 The CKB contract must be compiled for:
 ```text
@@ -139,20 +98,8 @@ instead of the normal host target:
 x86_64-unknown-linux-gnu
 ```
 
-The successful build command was:
 
-```bash
-cargo build \
-  --target riscv64imac-unknown-none-elf \
-  --release
-```
-
-However, the normal Cargo configuration initially produced only:
-
-```text
-libvault_lock.rlib
-```
-# 9. RISC-V Contract Verification
+# RISC-V Contract Verification
 The generated contract was inspected using:
 
 ```bash
@@ -190,44 +137,6 @@ This was an important milestone because it verified that the contract was now a 
 
 ---
 
-# 10. LLVM / Clang Build Issue
-
-Another issue occurred when running:
-
-```bash
-make build
-```
-
-The build failed because the Makefile attempted to use:
-
-```text
-/usr/bin/llvm-ar
-```
-
-but that executable did not exist at that location.
-
-The system actually had LLVM installed under:
-
-```text
-/usr/lib/llvm-21/bin/
-```
-
-The correct tools were:
-
-```text
-/usr/lib/llvm-21/bin/clang
-/usr/lib/llvm-21/bin/llvm-ar
-```
-
-The successful build environment therefore used:
-
-```bash
-TARGET_CC="/usr/lib/llvm-21/bin/clang"
-TARGET_AR="/usr/lib/llvm-21/bin/llvm-ar"
-```
-
-This allowed `ckb-std` and the contract to compile successfully.
-
 ---
 
 # 11. Successful Contract Build
@@ -238,27 +147,12 @@ Eventually the contract successfully produced:
 target/riscv64imac-unknown-none-elf/release/vault-lock
 ```
 
-with a size of approximately:
-
-```text
-213 KB
-```
-
-The successful build output confirmed:
-
-```text
-Finished `release` profile [optimized]
-```
-
 This gave the project a real compiled CKB contract binary that could be loaded by the test environment.
 
----
-
-# 12. CKB Testtool Integration
-
+# CKB Testtool Integration
 The next major stage was testing the contract.
 
-The project uses:
+for the project, i used:
 
 ```text
 ckb-testtool = 1.1.1
@@ -282,9 +176,6 @@ and deployed into the test environment:
 let out_point = context.deploy_cell(contract_bin.into());
 ```
 
-This simulates contract deployment.
-
----
 
 # 13. Creating the Lock Script
 
@@ -359,7 +250,7 @@ context
 
 and the test passed.
 
-# 17. GitHub Integration
+# GitHub Integration
 
 The project has now been added to GitHub:
 
@@ -369,13 +260,7 @@ The repository is:
 
 `https://github.com/Mannychino/CKB-Vault`
 
-The project is being maintained as an ongoing learning and development project rather than a one-off experiment.
-
-Git is being used to preserve the development history and provide a record of the project's progression.
-
----
-
-# 18. Current Features
+# Current Features
 
 At the current stage, the project supports:
 
@@ -477,37 +362,6 @@ The RISC-V build required the correct:
 
 A smart contract can be logically correct while still failing because the compilation environment is incorrect.
 
-# 21. Development Workflow Established
-
-The project now follows this general workflow:
-Write Rust Contract
-        ↓
-Compile for RISC-V
-        ↓
-Generate vault-lock binary
-        ↓
-Inspect ELF
-        ↓
-Load binary into CKB Testtool
-        ↓
-Deploy contract Cell
-        ↓
-Create Lock Script
-        ↓
-Create Input Cell
-        ↓
-Create Output Cell
-        ↓
-Build Transaction
-        ↓
-Complete Transaction
-        ↓
-Verify Transaction
-        ↓
-Test Result
-
-
-This workflow will form the foundation for the next stages of development.
 
 # 23. Reflection
 
