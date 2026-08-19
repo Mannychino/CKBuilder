@@ -117,15 +117,12 @@ statically linked
 ```
 
 This confirmed that the contract was actually compiled for the CKB RISC-V environment rather than the local x86-64 Linux environment.
-
 The ELF header was also inspected using:
-
 ```bash
 riscv64-unknown-elf-readelf -h target/riscv64imac-unknown-none-elf/release/vault-lock
 ```
 
 The output confirmed:
-
 ```text
 Machine: RISC-V
 Type: EXEC
@@ -135,11 +132,8 @@ Flags: RVC, soft-float ABI
 
 This was an important milestone because it verified that the contract was now a valid RISC-V executable suitable for CKB execution.
 
----
 
----
-
-# 11. Successful Contract Build
+# Successful Contract Build
 
 Eventually the contract successfully produced:
 
@@ -177,7 +171,7 @@ let out_point = context.deploy_cell(contract_bin.into());
 ```
 
 
-# 13. Creating the Lock Script
+#  Creating the Lock Script
 
 The test constructs the lock script from the deployed contract:
 
@@ -196,69 +190,6 @@ Args = [42]
 ```
 
 The lock script is then attached to the input Cell and output Cell.
-
----
-
-# 14. Simulated Transaction
-
-The test creates an input Cell:
-
-```text
-Capacity: 1000 CKB
-Lock: Vault Lock
-Data: empty
-```
-
-Then it creates an output Cell:
-
-```text
-Capacity: 1000 CKB
-Lock: Vault Lock
-Data: empty
-```
-
-The transaction therefore represents:
-
-```text
-Input Cell
-   │
-   │ Vault Lock
-   ▼
-Transaction
-   │
-   ▼
-Output Cell
-   │
-   │ Vault Lock
-   ▼
-New Cell
-```
-
-The transaction is completed with:
-
-```rust
-let tx = context.complete_tx(tx);
-```
-
-and then verified using:
-
-rust
-context
-    .verify_tx(&tx, 10_000_000)
-    .expect("transaction should pass");
-
-
-and the test passed.
-
-# GitHub Integration
-
-The project has now been added to GitHub:
-
-**CKB-Vault**
-
-The repository is:
-
-`https://github.com/Mannychino/CKB-Vault`
 
 # Current Features
 
@@ -310,38 +241,30 @@ The current implementation should therefore be considered the **foundation of th
 # 20. What I Learned
 This project significantly improved my understanding of the relationship between CKB's architecture and actual smart-contract development.
 The most important lessons were:
-
 ### 1. CKB contracts are RISC-V programs
 They are not ordinary Linux applications.
 They must be compiled for:
-
 text
 riscv64imac-unknown-none-elf
-
 ### 2. Lock Scripts control spending
 The Lock Script determines whether a Cell can be consumed by a transaction.
 ### 3. Script arguments provide contract-specific information
 The contract can read:
-
+```
 rust
 script.args()
-
+```
 and use those arguments when validating a transaction.
 
 ### 4. Testing happens in a different environment
-
-The native Rust test environment and the RISC-V CKB execution environment are different.
-
+The native Rust test environment and the RISC-V CKB execution environment are different
 This distinction caused several of the initial linker problems.
-
 ### 5. The compiled contract is part of the test
-
 The test does not simply call the Rust function directly.
 
 It deploys the compiled contract binary and executes it through `ckb-testtool`.
 
 ### 6. Deployment creates an OutPoint
-
 The test uses:
 
 rust
@@ -417,4 +340,6 @@ The major accomplishment this week was establishing a working **Vault Lock smart
 The project can now compile a custom Rust lock script into a RISC-V executable, deploy that executable into a simulated CKB environment, construct Cells using the custom lock script, create a transaction, and successfully verify that transaction.
 
 The next phase will focus on transforming this working technical foundation into an actual vault mechanism with meaningful authorization and spending rules.
+
+[!imagelink](https://github.com/Mannychino/CKBuilder/blob/ed296bbeda648b5a1da037d3ee2fb0c0dcf8fde7/Screenshot%20(34).png)
  
