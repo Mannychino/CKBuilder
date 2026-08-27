@@ -16,19 +16,19 @@ I spent most of the week building the project's:
 ## 🛠 Development Environment
 The project uses an OffCKB local development network, after successfully launching the devnet, i checked if it is accessible through the local RPC and also carrry out some connection test with TypeScript using CCC.
 The local RPC endpoint is:
-``
+```
 http://127.0.0.1:8114
-``
+```
 The connection test produced:
-``
+```
 Connected to CKB devnet!
 Tip block: 9562
-``
+```
 and later:
-``
+```
 Connected to CKB devnet!
 Tip block: 11845
-``
+```
 This confirmed that the TypeScript application could communicate with the local CKB node.
 
 
@@ -37,21 +37,21 @@ This confirmed that the TypeScript application could communicate with the local 
 ### Contract Deployment
 The vault-lock contract has already been deployed to the local OffCKB devnet.
 The currently recorded deployment information is:
-``
+```
 codeHash:
 0x6c4c1c2174b32852799498439844ff66100fba73d10b4b8941f800b14d50496b
 hashType:
 data2
-``
+```
 The latest deployment generated the following Cell Dependency:
-``
+```
 txHash:
 0x2f7577de9ac8cb93e89f06a82c387ef8634b81bc2830d09577fccca48cf17b01
 index:
 0
 depType:
 code
-``
+```
 This deployment information is important because the vault transaction must reference the deployed contract through its cellDep.
 
 
