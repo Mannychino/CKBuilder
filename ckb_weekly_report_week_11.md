@@ -1,4 +1,4 @@
-## CKB Builder Track Weekly Report - week 7 and 8
+## CKB Builder Track Weekly Report - week 11
 **Name:** Nwaji Victor
 **Week** 22/08/2026
 
@@ -59,9 +59,8 @@ This deployment information is important because the vault transaction must refe
 
 OffCKB provides pre-funded development accounts, with the accounts i was able to make use of the one of the account (Account 0) as the funding source of the vault transaction.
 
-
 The account's lock script is:
-
+```
 codeHash:
 0x9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8
 
@@ -70,7 +69,7 @@ type
 
 args:
 0x8e42b1999f265a0078503c4acec4d5e134534297
-
+```
 The corresponding development address is:
 
 ckt1qzda0cr08m85hc8jlnfp3zer7xulejywt49kt2rr0vthywaa50xwsqvwg2cen8extgq8s5puft8vf40px3f599cytcyd8
