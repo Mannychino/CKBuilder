@@ -37,21 +37,21 @@ This confirmed that the TypeScript application could communicate with the local 
 ### Contract Deployment
 The vault-lock contract has already been deployed to the local OffCKB devnet.
 The currently recorded deployment information is:
-```
+``
 codeHash:
 0x6c4c1c2174b32852799498439844ff66100fba73d10b4b8941f800b14d50496b
 hashType:
 data2
-```
+``
 The latest deployment generated the following Cell Dependency:
-```
+``
 txHash:
 0x2f7577de9ac8cb93e89f06a82c387ef8634b81bc2830d09577fccca48cf17b01
 index:
 0
 depType:
 code
-```
+``
 This deployment information is important because the vault transaction must reference the deployed contract through its cellDep.
 
 
