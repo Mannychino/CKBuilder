@@ -86,3 +86,6 @@ The most significant achievement so far is that the complete pipeline from Rust 
 The remaining issue is isolated to funding-cell selection and OutPoint resolution.
 
 Once that is corrected, the next major milestone will be successfully creating and inspecting a real vault Cell on the OffCKB devnet.
+
+
+![image alt](https://github.com/Mannychino/CKBuilder/blob/8f86d03f64c6719d4e0ab61071075044b4a728dd/Screenshot%20(40).png)
